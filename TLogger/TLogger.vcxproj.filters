@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TLogger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TLoggerDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleReport.cpp">
+      <Filter>Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogConfigEquip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Equip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bin\gsblib_dif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TLoggerDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UDPServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleReport.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="pgrid.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="FontEx.h">
+      <Filter>Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogConfigEquip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Equip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\paneicons.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TLogger.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\TLogger.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9fff0b25-56f3-41e7-b45b-7f00226193a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{a60ec982-d478-4514-820b-130171371b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{2e5a2541-cb92-4c6d-b110-0e30dfcb7965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controls">
+      <UniqueIdentifier>{6b4cea23-51f7-4e63-92e4-cc84ca8c3c8c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tlogger.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
