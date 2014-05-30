@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// TOD 별도 파일로 빼기
+// TODO 별도 파일로 빼기
 
 #pragma pack(push, 1)
 

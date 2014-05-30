@@ -22,12 +22,17 @@ public:
 
 protected:
 	virtual BOOL OnInitDialog();
+	virtual void OnCancel();
+	virtual void OnOK();
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnDestroy();
 	afx_msg void OnClose();
 	afx_msg void OnRestore();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 
 	afx_msg void OnClearLog();
 	virtual void OnEquipEdit(NMHDR* pNMHDR, LRESULT* pResult); 
@@ -78,5 +83,4 @@ public:
 		((CTLoggerDlg*)LPARAM)->run(); 
 		return 1; 
 	}
-	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };

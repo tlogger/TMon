@@ -31,6 +31,7 @@ BEGIN_MESSAGE_MAP(CTLoggerDlg, CDialog)
 	ON_WM_DESTROY()
 	ON_WM_CLOSE()
 	ON_WM_TIMER()
+	ON_WM_SYSCOMMAND()
 	ON_COMMAND(IDR_RESTORE, OnRestore)
 
 	ON_NOTIFY(NM_DBLCLK, IDC_CUSTOM_LIST, &CTLoggerDlg::OnEquipEdit)
@@ -45,7 +46,6 @@ BEGIN_MESSAGE_MAP(CTLoggerDlg, CDialog)
 	ON_MESSAGE(CUDPServer::SVR_HANDLE_ERROR, &CTLoggerDlg::OnServerError)
 	ON_MESSAGE(CUDPServer::SVR_UNKNOWN_IP_ERROR, &CTLoggerDlg::OnServerIpError)
 	ON_BN_CLICKED(IDC_BUTTON_CLEAR_LOG, &CTLoggerDlg::OnClearLog)
-
 END_MESSAGE_MAP()
 
 BOOL CTLoggerDlg::OnInitDialog()
@@ -124,6 +124,18 @@ BOOL CTLoggerDlg::OnInitDialog()
 	return TRUE;  
 }
 
+void CTLoggerDlg::OnCancel()
+{
+	// 키 입력 잘못되어 실행 중단되는 것 막기
+	// CDialog::OnCancel();
+}
+
+void CTLoggerDlg::OnOK()
+{
+	// 키 입력 잘못되어 실행 중단되는 것 막기
+	// CDialog::OnOK();
+}
+
 void CTLoggerDlg::OnRestore()
 {
 	m_bMinimized = !m_bMinimized;
@@ -136,6 +148,16 @@ void CTLoggerDlg::OnRestore()
 	{
 		m_TrayIcon.MaximizeFromTray(this);
 	}
+}
+
+void CTLoggerDlg::OnSysCommand(UINT nID, LPARAM lParam)
+{
+	if (nID == SC_MINIMIZE  ) {
+		m_TrayIcon.MinimizeToTray(this);
+		m_bMinimized = true;
+	}
+
+	CDialog::OnSysCommand(nID, lParam);
 }
 
 HCURSOR CTLoggerDlg::OnQueryDragIcon()
@@ -177,14 +199,14 @@ void CTLoggerDlg::OnClose()
 #ifdef _DEBUG
 	m_svr.stop();
 	addServerLog(LOG_NORMAL, "server gracefully closed...");
-	CDialog::OnClose();
+	CDialog::OnOK();
 #else
 	CString s;
 	s.Format("Are you sure to quit the Temp Logger Server?\r\n");
 	if (MessageBox(s, "Quit", MB_OKCANCEL | MB_ICONEXCLAMATION) == IDOK) {
 		m_svr.stop();
 		addServerLog(LOG_NORMAL, "server gracefully closed...");
-		CDialog::OnClose();
+		CDialog::OnOK();
 	}
 #endif
 }
@@ -756,3 +778,4 @@ void CTLoggerDlg::OnClearLog()
 	m_cLog.Populate();
 	m_cTemp.Populate();
 }
+

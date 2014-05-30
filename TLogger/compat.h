@@ -1,8 +1,8 @@
 #pragma once
 
 #define PRG_NAME	"TLogger"
-#define PRG_VERSION	"1.00"
-#define PRG_RELDATE	"2014/05/20"
+#define PRG_VERSION	"1.01"
+#define PRG_RELDATE	"2014/05/30"
 #define PRG_AUTHOR	"luke"
 #define PRG_VER		PRG_NAME " " PRG_VERSION " " PRG_RELDATE " by " PRG_AUTHOR
 
@@ -12,6 +12,12 @@
 
 /*
 
+1.01	2014/05/30
+
+	add: tray 처리 
+	del: 불필요한 temp 처리 부분 삭제
+	fix: 키 입력 실수로 실행 중단
+ 
 1.00	2014/05/20
 
 */

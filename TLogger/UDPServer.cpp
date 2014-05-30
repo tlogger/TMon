@@ -81,7 +81,7 @@ void CUDPServer::parse(const char* p, size_t sz)
 
 	DWORD m_nIP = inet_addr(m_rep.address().to_string().c_str());
 	vector<char>::iterator it;
-	double temp;
+	double temp = 0.0;
 
 	for (it = find(m_buf.begin(), m_buf.end(), '\r'); it != m_buf.end(); it = find(m_buf.begin(), m_buf.end(), '\r')) {
 
@@ -91,7 +91,6 @@ void CUDPServer::parse(const char* p, size_t sz)
 		char* pp = (char*)data.c_str();
 		char* q;
 
-		temp = atof(pp);
 		for (size_t i = 0; i < config.m_aEquip.size(); i++) {
 			CEquip* p = config.m_aEquip[i];
 			// IP와 prefix가 일치할 때만 적법
