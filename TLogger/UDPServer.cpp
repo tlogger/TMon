@@ -100,7 +100,6 @@ void CUDPServer::parse(const char* p, size_t sz)
 				p->putTemp(temp);
 				// TODO 온도 변화시 알림?
 				// post(SVR_TEMP, i, int(temp * 100.0));
-				return;
 			}
 		}
 		// 알려지지 않은 서버가 보내온 데이터일 경우 warning으로 처리
