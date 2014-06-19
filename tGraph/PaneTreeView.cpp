@@ -115,6 +115,11 @@ void CPaneTreeView::addTreeItem(CString path, HTREEITEM hroot)
 void CPaneTreeView::setTreeItem()
 {
 	m_ctrlTree.DeleteAllItems();
+
+	CFileFind finder;
+	bool bfd = finder.FindFile(config->g_sFilePath);
+	if (!bfd)return;
+
 	
 	CString path = config->g_sFilePath + "\\";
 	CString root = path.Mid(path.ReverseFind('\\')+1, path.GetLength());
