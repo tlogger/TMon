@@ -1,0 +1,124 @@
+<!-- %%File-Version:2.21% -->
+<!-- Version 2.21  
+        scm/error 에 5번째 비트에 connect 값 추가 by koum25 06.09.18-->
+<shm>
+
+	<!-- cu의 application이 내부적으로 사용하는 구조체 -->
+	
+	<sysctrl>
+		<gsld>
+			<count	type="int" len="4"/>
+			<pid	type="int" len="4"/>
+		</gsld>
+
+		<ibc>
+			<count	type="int" len="4"/>
+			<pid	type="int" len="4"/>
+		</ibc>
+
+		<diag>
+			<count	type="int" len="4"/>
+			<pid	type="int" len="4"/>
+		</diag>
+
+		<scm>
+			<count	type="int" len="4"/>
+			<pid	type="int" len="4"/>
+		</scm>
+
+	</sysctrl>
+
+	<!-- ibc 실행 관련 -->
+	
+	<ibc>
+		<dirty				type="int"	len="4"/>
+		<State				type="int"	len="4"/> 
+		<Filename			type="char"	len="128"/>	<!-- 테스트 컨디션 파일명 -->
+		<TestCount			type="int" len="4"/>
+		<ErrCount			type="int" len="4"/>
+
+		<SlotMount			type="int" len="8"/>	<!-- BIB가 꽂힌 슬롯 비트맵 -->
+		<SlotErr			type="int" len="8"/>	<!-- 에러난 슬롯 비트맵 -->
+
+		<stSetStep			type="time"	len="4"/>
+		<stWaitTemp		type="time"	len="4"/>
+		<stStart			type="time"	len="4"/>
+		<stExpectEnd	type="time"	len="4"/>
+		<bfStart			type="time"	len="4"/>	<!-- BIF가 시작된 시각 -->
+		<bfEnd				type="time"	len="4"/>	<!-- BIF가 끝난 시각 -->
+		<bfPrevStepRuntime	type="time" len="4"/>	<!-- 이전 스텝의 실행 시간 -->
+		<bfBifId			type="char"	len="32"/>
+		<bfStepId			type="char"	len="32"/>	<!-- BIF step id -->
+		<bfPowerId			type="char"	len="32"/>	<!-- 파워 id -->
+		<bfTemp				type="char"	len="32"/>
+		<bfPatternId		type="char" len="32"/>	<!-- 패턴 sub name -->
+
+
+		<!-- 각 슬롯의 BIB ID -->
+
+		<bib 				type="array"	iter="8">
+			<sno			type="int"		len="4"/>	<!-- 슬롯 번호는 32비트 hex 값 -->
+		</bib>
+
+		<!-- 전압 세팅값 -->
+
+		<da					type="array" iter="16">
+			<name			type="char"		len="16"/>
+			<volt			type="int"		len="4"/>
+			<current		type="int"	 	len="4"/>
+		</da>
+
+	</ibc>
+
+	<!-- ibc 또는 diag에서 각 슬롯별 bid, 에러 및 전압값 -->
+
+	<driver>
+		<dirty				type="int"   	len="4"/>
+		<slot				type="array"	iter="8">
+			<bid			type="int"		len="4"/>
+			<ad				type="array"	iter="16">
+				<value 		type="int"	 	len="4"/>
+			</ad>
+		</slot>
+		<ov_slot		type="array"		iter="8">
+			<ad					type="array"		iter="16">
+				<status 	type="int"		len="4"/>	<!-- 0 = NO Error, 1 = Under , 2 = Over -->
+				<time 		type="int"		len="4"/>   <!-- Error 발생시간 -->
+				<err_value	type="int"		len="4"/>   <!-- 1/1000 값으로 Error발생시 전압값 -->
+			</ad>
+		</ov_slot>
+	</driver>
+
+	<!-- diag 실행 관련 -->
+	
+	<diag>
+		<dirty				type="int"	len="4"/>
+		<run				type="int"	len="4"/>
+		<progress-id		type="char"	len="32"/>
+		<progress-current	type="int"	len="4"/>
+		<progress-end		type="int"	len="4"/>
+	</diag>
+	
+	<!-- scm 실행관련 -->
+	
+	<scm>
+		<dirty              type="int"  len="4"/>
+		<run				type="int"	len="4"/>
+		<temp-current		type="int"	len="4"/>
+		<temp-target		type="int"	len="4"/>	
+		<error				type="int"	len="4"/>	<!-- 접점으로 읽은 에러 -->
+		<lamp				type="int"	len="4"/>	<!-- 현재 램프 상태 -->
+		<status				type="cbit"	len="6">	<!-- 챔버 컨트롤러에서 읽은 알람 -->
+			<opmode			bit="0-5"/>				<!-- 0=stop, 1=run, 2=ready, 3=end, 4=break, 5=trouble, 6=hold, 7=wait, 8=tune -->
+		</status>
+		<zone				type="array" iter="4">
+			<status         type="cbit" len="4">
+				<alarm		bit="0"/>				<!-- zone power alarm error -->
+				<p48v-under	bit="1"/>				<!-- zone power 48v under -->
+				<p48v-over	bit="2"/>				<!-- zone power 48v over -->
+				<temp		bit="3"/>				<!-- zone power temp error -->
+			</status>
+		</zone>
+	</scm>
+
+</shm>
