@@ -71,9 +71,9 @@ void CUDPServer::startRecieve()
 
 void CUDPServer::parse(const char* p, size_t sz)
 {
-#if 0
+#ifdef _DEBUG
 	string data(m_pRcvBuf, sz);
-	TRACE("%s: %s\n", m_rep.address().to_string().c_str(), data.c_str());
+	TRACE("%s: %d: %s\n", m_rep.address().to_string().c_str(), (int)time(NULL), data.c_str());
 #endif	
 
 	// for 짤방
@@ -103,7 +103,9 @@ void CUDPServer::parse(const char* p, size_t sz)
 			}
 		}
 		// 알려지지 않은 서버가 보내온 데이터일 경우 warning으로 처리
-		post(SVR_UNKNOWN_IP_ERROR, m_nIP, int(temp * 100.0));
+		// NOTICE: i.Server가 TD (Temp Difference)를 보내는 것은 처리가 안 되므로
+		// unknown server error를 처리하지 않음.
+		//post(SVR_UNKNOWN_IP_ERROR, m_nIP, int(temp * 100.0));
 	}
 }
 

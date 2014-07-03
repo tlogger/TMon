@@ -108,7 +108,6 @@
     <None Include="res\TLogger.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\bin\gsblib_dif.h" />
     <ClInclude Include="compat.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DialogConfigEquip.h" />

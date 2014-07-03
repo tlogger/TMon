@@ -70,7 +70,7 @@ BOOL CDialogConfigEquip::OnEraseBkgnd(CDC* pDC)
 void CDialogConfigEquip::redrawGrid()
 {
 	bool bGSTECH = (m_pItems[1]->GetValue() == m_pEquip->m_aLoggerType[0]);
-	bool bPeriodic = (m_pItems[4]->GetValue() == m_pEquip->m_aLogMethod[0]);
+	bool bPeriodic = (m_pItems[5]->GetValue() == m_pEquip->m_aLogMethod[0]);
 
 	if (bGSTECH) {
 		for (size_t i = 5; i < 11; i++)

@@ -1,8 +1,8 @@
 #pragma once
 
 #define PRG_NAME	"TLogger"
-#define PRG_VERSION	"1.01"
-#define PRG_RELDATE	"2014/05/30"
+#define PRG_VERSION	"1.02"
+#define PRG_RELDATE	"2014/07/03"
 #define PRG_AUTHOR	"luke"
 #define PRG_VER		PRG_NAME " " PRG_VERSION " " PRG_RELDATE " by " PRG_AUTHOR
 
@@ -11,6 +11,13 @@
 
 
 /*
+
+1.02	2014/07/03
+
+	mod: gsblib dependancy 제거
+	mod: i.Server 때문에 port를 2000으로 변경
+	fix: stop 되었을 때 로그 기록 안 되는 현상
+	fix: 장비 config에서log method를 바꿨을 때 date 변경 안되던 현상
 
 1.01	2014/05/30
 

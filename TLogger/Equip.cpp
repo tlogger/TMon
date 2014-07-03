@@ -407,7 +407,7 @@ int CEquip::run()
 
 	if (m_bLogging) {
 		if (isEndCondition()) {
-			closeTempFiles();
+			stop();
 			return LOG_ENDED;
 		}
 		else {
